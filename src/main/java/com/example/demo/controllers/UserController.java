@@ -11,9 +11,11 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/user")
 public class UserController {
-
+      
     @Autowired
     private UserServiceImpl userServiceiImpl;
+    
+
 
     @PostMapping("/add")
     public User create(@RequestBody User user) {
@@ -32,7 +34,7 @@ public class UserController {
 
     @GetMapping("/get/{id}")
     public User get(@PathVariable Long id) {
-        return userServiceiImpl.get(id);
+        return  userServiceiImpl.get(id);
     }
 
     @GetMapping("/all")

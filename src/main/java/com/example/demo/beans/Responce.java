@@ -1,5 +1,7 @@
 package com.example.demo.beans;
 
+import com.example.demo.utils.Result;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,10 +16,3 @@ public class Responce {
     private Result result;
 }
 
-enum Result {
-    Tout_A_Fait_Daccord ,
-    Daccord ,
-    Neutre ,
-    Pas_daccord ,
-    Desaccord_Total
-}
