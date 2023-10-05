@@ -1,5 +1,7 @@
 package com.example.demo.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,7 +12,17 @@ public class Question {
     private String text;
 
     @ManyToOne
+    @JoinColumn(name="category_id", nullable=false)
+    @JsonIgnore
     private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public Question() {
     }
