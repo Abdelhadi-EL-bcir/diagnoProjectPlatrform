@@ -27,11 +27,12 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public Question update(Question question, Long id) {
         if(questionRepository.findById(id) != null){
-            Question sqtToUpdate = questionRepository.findQuestionById(id);
-            sqtToUpdate.setText(question.getText());
-            return questionRepository.findQuestionById(sqtToUpdate.getId());
+            Question qstToUpdate = questionRepository.findQuestionById(id);
+            qstToUpdate.setText(question.getText());
+            questionRepository.save(qstToUpdate);
+            return questionRepository.findQuestionById(qstToUpdate.getId());
         }else{
-            return  null;
+            return null;
         }
     }
 

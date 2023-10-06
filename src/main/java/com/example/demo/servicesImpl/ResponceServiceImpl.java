@@ -32,6 +32,15 @@ public class ResponceServiceImpl implements ResponceService {
         if(responceRepository.findById(id) != null){
             Responce resToUpdate = responceRepository.findResponceById(id);
             resToUpdate.setText(responce.getText());
+            switch (resToUpdate.getText()){
+                case "Tout_A_Fait_Daccord" : resToUpdate.setNote(4);break;
+                case "Daccord" : resToUpdate.setNote(3);break;
+                case "Neutre" : resToUpdate.setNote(2);break;
+                case "Pas_daccord" : resToUpdate.setNote(1);break;
+                case "Desaccord_Total" : resToUpdate.setNote(0);break;
+                default:break;
+            }
+            responceRepository.save(resToUpdate);
             return responceRepository.findResponceById(resToUpdate.getId());
         }else{
             return  null;
