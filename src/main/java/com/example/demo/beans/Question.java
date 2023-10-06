@@ -1,6 +1,7 @@
 package com.example.demo.beans;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
@@ -13,8 +14,11 @@ public class Question {
 
     @ManyToOne
     @JoinColumn(name="category_id", nullable=false)
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Category category;
+
+    @OneToOne(mappedBy = "question", cascade = CascadeType.ALL)
+    private Responce responce;
 
     public Category getCategory() {
         return category;
@@ -25,6 +29,14 @@ public class Question {
     }
 
     public Question() {
+    }
+
+    public Responce getResponce() {
+        return responce;
+    }
+
+    public void setResponce(Responce responce) {
+        this.responce = responce;
     }
 
     public Long getId() {

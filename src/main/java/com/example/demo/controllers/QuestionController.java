@@ -38,6 +38,11 @@ public class QuestionController {
         return questionServiceImpl.getAll();
     }
 
+    @GetMapping("/cat/{id}")
+    public List<Question> getByCategory(@PathVariable  Long id) {
+        return questionServiceImpl.getByCategory(id);
+    }
+
     @Autowired
     private QuestionServiceImpl questionServiceImpl;
 
