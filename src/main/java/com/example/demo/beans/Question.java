@@ -24,7 +24,7 @@ public class Question {
     @OneToOne(mappedBy = "question", cascade = CascadeType.ALL)
     private Responce responce;
 
-    public Question(){
 
+    public Question(){
     }
 }

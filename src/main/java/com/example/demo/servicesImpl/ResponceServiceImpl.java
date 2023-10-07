@@ -17,13 +17,12 @@ public class ResponceServiceImpl implements ResponceService {
     @Override
     public Responce create(Responce responce) {
         switch (responce.getText()){
-            case "Tout_A_Fait_Daccord" : responce.setNote(4);break;
-            case "Daccord" : responce.setNote(3);break;
-            case "Neutre" : responce.setNote(2);break;
-            case "Pas_daccord" : responce.setNote(1);break;
-            case "Desaccord_Total" : responce.setNote(0);break;
-            default:
-                return  null;
+            case "Tout_A_Fait_Daccord" : responce.setNote(5);break;
+            case "Daccord" : responce.setNote(4);break;
+            case "Neutre" : responce.setNote(3);break;
+            case "Pas_daccord" : responce.setNote(2);break;
+            case "Desaccord_Total" : responce.setNote(1);break;
+            default:break;
         }
         return responceRepository.save(responce);
     }

@@ -16,8 +16,13 @@ public class Responce {
     private int note;
     private String text;
 
+    @ManyToOne
+    @JoinColumn(name="diagnostic_id", nullable=false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Diagnostic diagnostic;
+
     @OneToOne
-    @JoinColumn(name = "question_id")
+    @JoinColumn(name = "question_id", nullable=false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Question question;
 
@@ -25,6 +30,7 @@ public class Responce {
     @JoinColumn(name="user_id", nullable=false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
+
 
     public Responce() {
     }

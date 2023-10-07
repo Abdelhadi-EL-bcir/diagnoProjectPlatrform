@@ -1,5 +1,6 @@
 package com.example.demo.beans;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -21,6 +22,13 @@ public class User {
     private String role ;
 
     @OneToMany(mappedBy = "user")
+    private List<Responce> responceList;
+
+
+    @OneToMany(mappedBy = "user")
+    private List<Diagnostic> diagnosticList;
+
+
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Responce> responces;
 
