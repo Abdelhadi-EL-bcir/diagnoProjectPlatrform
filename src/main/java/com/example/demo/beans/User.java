@@ -1,9 +1,9 @@
 package com.example.demo.beans;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -14,6 +14,17 @@ public class User {
     private String password ;
     private String email ;
     private String role ;
+
+    @OneToMany(mappedBy = "responce")
+    private List<Responce> responceList;
+
+    public List<Responce> getResponceList() {
+        return responceList;
+    }
+
+    public void setResponceList(List<Responce> responceList) {
+        this.responceList = responceList;
+    }
 
     public User(){
 
