@@ -22,7 +22,8 @@ public class ResponceServiceImpl implements ResponceService {
             case "Neutre" : responce.setNote(2);break;
             case "Pas_daccord" : responce.setNote(1);break;
             case "Desaccord_Total" : responce.setNote(0);break;
-            default:break;
+            default:
+                return  null;
         }
         return responceRepository.save(responce);
     }
@@ -33,11 +34,11 @@ public class ResponceServiceImpl implements ResponceService {
             Responce resToUpdate = responceRepository.findResponceById(id);
             resToUpdate.setText(responce.getText());
             switch (resToUpdate.getText()){
-                case "Tout_A_Fait_Daccord" : resToUpdate.setNote(4);break;
-                case "Daccord" : resToUpdate.setNote(3);break;
-                case "Neutre" : resToUpdate.setNote(2);break;
-                case "Pas_daccord" : resToUpdate.setNote(1);break;
-                case "Desaccord_Total" : resToUpdate.setNote(0);break;
+                case "Tout_A_Fait_Daccord" : resToUpdate.setNote(5);break;
+                case "Daccord" : resToUpdate.setNote(4);break;
+                case "Neutre" : resToUpdate.setNote(3);break;
+                case "Pas_daccord" : resToUpdate.setNote(2);break;
+                case "Desaccord_Total" : resToUpdate.setNote(1);break;
                 default:break;
             }
             responceRepository.save(resToUpdate);

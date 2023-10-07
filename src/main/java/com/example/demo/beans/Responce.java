@@ -1,10 +1,14 @@
 package com.example.demo.beans;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 public class Responce {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,41 +18,15 @@ public class Responce {
 
     @OneToOne
     @JoinColumn(name = "question_id")
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Question question;
 
-    public Long getId() {
-        return id;
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private User user;
+
+    public Responce() {
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getNote() {
-        return note;
-    }
-
-    public void setNote(int note) {
-        this.note = note;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
-
-
 }
 
