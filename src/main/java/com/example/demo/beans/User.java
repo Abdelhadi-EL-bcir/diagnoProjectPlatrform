@@ -1,11 +1,17 @@
 package com.example.demo.beans;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Setter
+@Getter
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,66 +24,15 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Responce> responceList;
 
-    public List<Responce> getResponceList() {
-        return responceList;
-    }
-
-    public void setResponceList(List<Responce> diagnosticList) {
-        this.responceList = diagnosticList;
-    }
 
     @OneToMany(mappedBy = "user")
     private List<Diagnostic> diagnosticList;
 
-    public List<Diagnostic> getDiagnosticList() {
-        return diagnosticList;
-    }
 
-    public void setDiagnosticList(List<Diagnostic> diagnosticList) {
-        this.diagnosticList = diagnosticList;
-    }
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Responce> responces;
 
     public User(){
 
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 }

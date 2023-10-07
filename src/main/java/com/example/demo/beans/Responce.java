@@ -1,11 +1,14 @@
 package com.example.demo.beans;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 public class Responce {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,46 +31,8 @@ public class Responce {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
 
-    public User getUser() {
-        return user;
+
+    public Responce() {
     }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getNote() {
-        return note;
-    }
-
-    public void setNote(int note) {
-        this.note = note;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
-
-
 }
 

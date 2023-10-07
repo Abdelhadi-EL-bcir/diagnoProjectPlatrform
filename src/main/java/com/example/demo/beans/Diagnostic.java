@@ -5,7 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
+@Getter
+@Setter
 public class Diagnostic {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,19 +32,5 @@ public class Diagnostic {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+   
 }
