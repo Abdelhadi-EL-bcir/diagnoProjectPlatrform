@@ -1,7 +1,6 @@
 package com.example.demo.servicesImpl;
 
 import com.example.demo.beans.Category;
-import com.example.demo.beans.Category;
 import com.example.demo.repositories.CategoryRepository;
 import com.example.demo.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,4 +44,5 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> getAll() {
         return categoryRepository.findAll();
     }
+
 }
