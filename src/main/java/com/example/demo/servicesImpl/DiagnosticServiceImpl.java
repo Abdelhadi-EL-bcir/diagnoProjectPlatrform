@@ -41,8 +41,8 @@ public class DiagnosticServiceImpl implements DiagnosticService {
          return -1;
     }
 
-    @Override
-    public double getScoreGlobal(Long idUser, Long idCat) {
-        return 0;
-    }
+//    @Override
+//    public double getScoreGlobal(Long id, Long idCat) {
+//
+//    }
 }
