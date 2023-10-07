@@ -20,6 +20,14 @@ public class Question {
     @OneToOne(mappedBy = "question", cascade = CascadeType.ALL)
     private Responce responce;
 
+    public Responce getResponce() {
+        return responce;
+    }
+
+    public void setResponce(Responce responce) {
+        this.responce = responce;
+    }
+
     public Category getCategory() {
         return category;
     }
@@ -29,14 +37,6 @@ public class Question {
     }
 
     public Question() {
-    }
-
-    public Responce getResponce() {
-        return responce;
-    }
-
-    public void setResponce(Responce responce) {
-        this.responce = responce;
     }
 
     public Long getId() {

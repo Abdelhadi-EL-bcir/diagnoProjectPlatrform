@@ -15,15 +15,26 @@ public class User {
     private String email ;
     private String role ;
 
-    @OneToMany(mappedBy = "responce")
+    @OneToMany(mappedBy = "user")
     private List<Responce> responceList;
 
     public List<Responce> getResponceList() {
         return responceList;
     }
 
-    public void setResponceList(List<Responce> responceList) {
-        this.responceList = responceList;
+    public void setResponceList(List<Responce> diagnosticList) {
+        this.responceList = diagnosticList;
+    }
+
+    @OneToMany(mappedBy = "user")
+    private List<Diagnostic> diagnosticList;
+
+    public List<Diagnostic> getDiagnosticList() {
+        return diagnosticList;
+    }
+
+    public void setDiagnosticList(List<Diagnostic> diagnosticList) {
+        this.diagnosticList = diagnosticList;
     }
 
     public User(){

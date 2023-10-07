@@ -10,26 +10,30 @@ public class Responce {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    public int tmp;
     private int note;
     private String text;
 
+    @ManyToOne
+    @JoinColumn(name="diagnostic_id", nullable=false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Diagnostic diagnostic;
+
     @OneToOne
-    @JoinColumn(name = "question_id")
-    @JsonIgnore
+    @JoinColumn(name = "question_id", nullable=false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Question question;
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Responce responce;
+    private User user;
 
-    public Responce getResponce() {
-        return responce;
+    public User getUser() {
+        return user;
     }
 
-    public void setResponce(Responce responce) {
-        this.responce = responce;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Long getId() {
@@ -53,37 +57,7 @@ public class Responce {
     }
 
     public void setText(String text) {
-        switch (text) {
-            case "Tout_A_Fait_D'accord": {
-                this.text = text;
-                this.note = 5;
-                break;
-            }
-            case "D'accord": {
-                this.text = text;
-                this.note = 4;
-                break;
-            }
-            case "Neutre": {
-                this.text = text;
-                this.note = 3;
-                break;
-            }
-            case "Pas_D'accord": {
-                this.text = text;
-                this.note = 2;
-                break;
-            }
-            case "Desaccord_Total": {
-                this.text = text;
-                this.note = 1;
-                break;
-            }
-            default: {
-                this.text = text;
-                this.note = 0;
-            }
-        };
+        this.text = text;
     }
 
     public Question getQuestion() {
