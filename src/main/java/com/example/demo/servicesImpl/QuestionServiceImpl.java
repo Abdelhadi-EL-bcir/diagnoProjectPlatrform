@@ -1,6 +1,8 @@
 package com.example.demo.servicesImpl;
 
+import com.example.demo.beans.Category;
 import com.example.demo.beans.Question;
+import com.example.demo.repositories.CategoryRepository;
 import com.example.demo.repositories.QuestionRepository;
 import com.example.demo.services.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,9 @@ public class QuestionServiceImpl implements QuestionService {
     @Autowired
     private QuestionRepository questionRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     @Override
     public Question create(Question question) {
         return questionRepository.save(question);
@@ -21,7 +26,14 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question update(Question question, Long id) {
-        return null;
+        if(questionRepository.findById(id) != null){
+            Question qstToUpdate = questionRepository.findQuestionById(id);
+            qstToUpdate.setText(question.getText());
+            questionRepository.save(qstToUpdate);
+            return questionRepository.findQuestionById(qstToUpdate.getId());
+        }else{
+            return null;
+        }
     }
 
     @Override
@@ -38,5 +50,15 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public List<Question> getAll() {
         return questionRepository.findAll();
+    }
+
+    @Override
+    public List<Question> getByCategory(Long id) {
+        Category category = categoryRepository.findCategoryById(id);
+        if(category != null){
+             return  category.getQuestionList();
+        }else{
+            return  null;
+        }
     }
 }

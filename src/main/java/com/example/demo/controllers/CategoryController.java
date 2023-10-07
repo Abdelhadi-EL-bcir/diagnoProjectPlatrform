@@ -38,4 +38,5 @@ public class CategoryController {
     public List<Category> getAll() {
         return categoryServiceImpl.getAll();
     }
+    
 }

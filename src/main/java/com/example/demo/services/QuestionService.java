@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.beans.Category;
 import com.example.demo.beans.Question;
 
 import java.util.List;
@@ -10,4 +11,5 @@ public interface QuestionService {
     public String delete(Long id);
     public Question get(Long id);
     public List<Question> getAll();
+    public List<Question> getByCategory(Long id);
 }
