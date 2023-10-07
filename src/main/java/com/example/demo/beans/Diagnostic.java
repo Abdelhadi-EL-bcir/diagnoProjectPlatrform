@@ -19,13 +19,6 @@ public class Diagnostic {
     @OneToMany(mappedBy = "diagnostic")
     private List<Responce> responceList;
 
-    public List<Responce> getResponceList() {
-        return responceList;
-    }
-
-    public void setResponceList(List<Responce> responceList) {
-        this.responceList = responceList;
-    }
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)

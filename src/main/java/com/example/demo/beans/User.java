@@ -29,9 +29,6 @@ public class User {
     private List<Diagnostic> diagnosticList;
 
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private List<Responce> responces;
-
     public User(){
 
     }
