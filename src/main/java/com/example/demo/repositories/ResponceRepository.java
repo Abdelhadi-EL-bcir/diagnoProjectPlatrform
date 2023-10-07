@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ResponceRepository extends JpaRepository<Responce ,Long> {
     public Responce findResponceById(Long id);
+    public Responce findResponceByQuestion(Long id);
+
 }

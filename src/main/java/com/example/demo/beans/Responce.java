@@ -31,7 +31,6 @@ public class Responce {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
 
-
     public Responce() {
     }
 }

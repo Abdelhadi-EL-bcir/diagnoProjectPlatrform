@@ -1,6 +1,5 @@
 package com.example.demo.beans;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,7 +22,6 @@ public class Question {
 
     @OneToOne(mappedBy = "question", cascade = CascadeType.ALL)
     private Responce responce;
-
 
     public Question(){
     }
