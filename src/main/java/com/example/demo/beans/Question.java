@@ -21,6 +21,7 @@ public class Question {
     private Category category;
 
     @OneToOne(mappedBy = "question", cascade = CascadeType.ALL)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Responce responce;
 
     public Question(){

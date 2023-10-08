@@ -23,7 +23,6 @@ public class Responce {
 
     @OneToOne
     @JoinColumn(name = "question_id", nullable=false)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Question question;
 
     @ManyToOne

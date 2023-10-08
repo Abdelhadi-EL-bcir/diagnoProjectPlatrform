@@ -6,5 +6,5 @@ public interface DiagnosticService {
     public Diagnostic create(Diagnostic diagnostic);
     public String delete(Long id);
     public double getScoreGlobal(Long id);
-//    public double getScoreByCat(Long id,Long idCat);
+    public double getScoreByCat(Long idDiagno,Long idCat);
 }
