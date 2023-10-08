@@ -16,6 +16,8 @@ public class Diagnostic {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String name;
+
     @OneToMany(mappedBy = "diagnostic")
     private List<Responce> responceList;
 
@@ -24,6 +26,4 @@ public class Diagnostic {
     @JoinColumn(name="user_id", nullable=false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
-
-   
 }
