@@ -17,18 +17,18 @@ public class DiagnosticController {
         return diagnosticServiceImpl.create(diagnostic);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String delete(@PathVariable Long id) {
-        return diagnosticServiceImpl.delete(id);
-    }
-
-    @GetMapping("/get/{id}")
-    public double getScoreGlobal(@PathVariable Long id) {
+    @GetMapping("/getGlobal/{id}")
+    public String getScoreGlobal(@PathVariable Long id) {
         return diagnosticServiceImpl.getScoreGlobal(id);
     }
 
     @GetMapping("/getByCat/{id}/{idCat}")
-    public double getScoreByCat(@PathVariable Long id,@PathVariable Long idCat) {
+    public String getScoreByCat(@PathVariable Long id,@PathVariable Long idCat) {
         return diagnosticServiceImpl.getScoreByCat(id, idCat);
+    }
+
+    @GetMapping("/get/{id}")
+    public Diagnostic getDiagnostic(@PathVariable Long id){
+        return diagnosticServiceImpl.getDiagnostic(id);
     }
 }

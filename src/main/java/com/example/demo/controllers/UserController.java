@@ -14,8 +14,6 @@ public class UserController {
       
     @Autowired
     private UserServiceImpl userServiceiImpl;
-    
-
 
     @PostMapping("/add")
     public User create(@RequestBody User user) {
